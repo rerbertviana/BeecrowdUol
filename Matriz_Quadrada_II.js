@@ -1,51 +1,54 @@
-let n=['2', '3'];
+let n = ['2', '3'];
 
-let matrix = [];
-let resul = [];
-let l = 1;
-let cont = 0;
-let resp1 = [];
-let resp2 = [];
+matriz = [];
+let cont=0;
+let l=1;
+let m=2;
+let cont2=0;
 
-for(let i=0; i<n.length; i++) {
-    for(let j=0; j<n[i]; j++) {
-        if(j!=0) {
-            matrix.push(j+1);
-            resul[j] = matrix;
+for(let i=0; i<n[0]; i++) {
+    for(let j=0; j<n[0]; j++) {
+        if(i==0) {
+            matriz.push(j+1);
+            
         }
-        for(let k=0; k<n[i]; k++) {
-            if(j==0) {
-                matrix.push(k+1);
-                resul[j] = matrix;
+        else {
+            if(cont==0) {
+                matriz.push(matriz[i])
+                cont++;
             }
             else {
-                resul[j].map(r => {
-                    if(r==1){
-                        cont++;
-                    }
-                });
-                
-                if(resul[j][k]-1>0 ) {
-                    if(cont==0) {
-                        matrix.push(resul[j][k]-1);
-                        resul[j] = matrix;
-                    }
+                if((matriz[matriz.length-1] -1) != 0 && cont2==0) {
+                    matriz.push((matriz[matriz.length-1]) -1);
                 }
                 else {
-                    if(resul[j][k] != 1) {
-                        matrix.push(l+1);
-                        resul[j] = matrix;
-                        l++;
-                    }
+                    matriz.push(m);
+                    m++;
+                    cont2++;
                 }
             }
         }
-        matrix = [];
-        cont = 0;
-        l=1;
     }
-    console.log(resul);
+    cont = 0;
+    m=2;
+    cont2=0;
 }
 
+let c=[];
+let d=0;
+let h;
+
+for(let i=0; i<2; i++) {
+    for(let j=d; j<d+2; j++) {
+        if(c[i]) {
+            c[i] = c[i] + " " + matriz[j];
+        }
+        else {
+            c[i] = matriz[j];
+        }
+    }
+    d=d+2;
+    console.log(c[i])
+}
 
 
